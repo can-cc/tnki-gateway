@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "app.service.core",
+      "type": "java.lang.String",
+      "description": "core service address."
+    },
+    {
+      "name": "jwt.token.expire.time",
+      "type": "java.lang.String",
+      "description": "Description for jwt.token.expire.time."
+    },
+    {
+      "name": "jwt.issuer.name",
+      "type": "java.lang.String",
+      "description": "Description for jwt.issuer.name."
+    },
+    {
+      "name": "jwt.secret.key",
+      "type": "java.lang.String",
+      "description": "Description for jwt.secret.key."
+    }
+  ] }

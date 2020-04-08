@@ -17,6 +17,7 @@ ext {
 }
 
 dependencies {
+	compile 'com.auth0:java-jwt:3.4.1'
 	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
