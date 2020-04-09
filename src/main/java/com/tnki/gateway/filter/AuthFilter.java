@@ -1,6 +1,5 @@
 package com.tnki.gateway.filter;
 
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -17,11 +16,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-
 @Component
 public class AuthFilter implements GlobalFilter, Ordered {
-    // private static final Logger LOGGER = LoggerFactory.getLogger(AuthFilter.class);
-
     @Value("${jwt.header.key}")
     private String headerKey;
 

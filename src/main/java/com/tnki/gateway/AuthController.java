@@ -15,19 +15,20 @@ import java.util.Map;
 
 @RestController
 public class AuthController {
-    @Value("${jwt.header.key}")
+
     private String headerKey;
 
     WebClient client;
     AuthService authService;
 
-    AuthController(@Value("${app.service.core}") String coreServiceUrl, AuthService authService) {
+    AuthController(AuthService authService, @Value("${app.service.core}") String coreServiceUrl, @Value("${jwt.header.key}") String headerKey) {
         this.client = WebClient.create(coreServiceUrl);
         this.authService = authService;
+        this.headerKey = headerKey;
     }
 
     @PostMapping("/login")
-    private Mono<ResponseEntity<Void>> login(@RequestBody LoginRequest loginRequest) {
+    Mono<ResponseEntity<Void>> login(@RequestBody LoginRequest loginRequest) {
         return client
                 .post()
                 .uri("authentication")
@@ -39,7 +40,6 @@ public class AuthController {
                     }
                     return clientResponse.bodyToMono(Long.class).flatMap(userID -> {
                         String jwt = authService.buildJWT(userID);
-                        System.out.println(jwt);
                         return Mono.just(ResponseEntity.ok().header(headerKey, jwt).build());
                     });
                 });

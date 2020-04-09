@@ -19,10 +19,16 @@ ext {
 dependencies {
 	compile 'com.auth0:java-jwt:3.4.1'
 	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+	implementation 'io.projectreactor:reactor-test:3.3.4.RELEASE'
+
+	testImplementation 'com.squareup.okhttp3:mockwebserver:4.5.0'
+	testImplementation 'com.squareup.okhttp3:okhttp:4.5.0'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 }
+
 
 dependencyManagement {
 	imports {
