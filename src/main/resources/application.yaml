@@ -1,16 +1,18 @@
 server:
   port: 8360
 
+app:
+  service:
+    core: http://localhost:3500/
+
 spring:
   cloud:
     gateway:
       routes:
       - id: coreModule
-        uri: http://localhost:3500/
+        uri: ${app.service.core}
         predicates:
         - Path=/**
 
-app:
-  service:
-    core: http://localhost:3500/
+
 
