@@ -1,7 +1,5 @@
 package com.tnki.gateway.request;
 
-import org.springframework.beans.factory.annotation.Value;
-
 public class LoginRequest {
     private String username;
     private String password;

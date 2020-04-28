@@ -13,6 +13,3 @@ spring:
         uri: ${app.service.core}
         predicates:
         - Path=/**
-
-
-
